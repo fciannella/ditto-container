@@ -140,7 +140,7 @@ In addition to batch processing, this container includes **real-time streaming s
 ```bash
 # Inside container
 cd /app/src
-python streaming_service.py "/app/checkpoints/ditto_cfg/v0.4_hubert_cfg_trt_online.pkl" "/app/checkpoints/ditto_trt_Ampere_Plus"
+python websocket_server.py
 
 # Open browser with your server's IP/hostname:
 # http://YOUR_SERVER_IP:8000  (for remote server)
@@ -153,19 +153,7 @@ python streaming_service.py "/app/checkpoints/ditto_cfg/v0.4_hubert_cfg_trt_onli
 - For remote servers, replace `YOUR_SERVER_IP` with your actual server IP or hostname
 - The WebSocket URL is automatically detected from the browser location
 
-### 📺 RTMP Service (YouTube/Twitch Live)
-```bash
-# Inside container  
-cd /app/src
-python rtmp_streaming_service.py "/app/checkpoints/ditto_cfg/v0.4_hubert_cfg_trt.pkl" "/app/checkpoints/ditto_trt_Ampere_Plus"
-
-# Start streaming via API
-curl -X POST "http://localhost:8000/start_stream/my_stream" \
-  -H "Content-Type: application/json" \
-  -d '{"source_path": "/app/data/avatar.png", "rtmp_url": "rtmp://your_stream_url"}'
-```
-
-**See [STREAMING_GUIDE.md](src/STREAMING_GUIDE.md) for complete documentation.**
+**See `websocket_server.py` for a simple FastAPI based implementation.**
 
 ## Working with the Git Submodule
 
