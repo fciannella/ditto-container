@@ -1,9 +1,0 @@
-# Requirements for bandwidth test scripts
-# Minimal dependencies for WebSocket bandwidth testing
-
-# WebSocket server functionality
-fastapi>=0.104.0
-uvicorn>=0.24.0
-
-# WebSocket client functionality
-websockets>=11.0.0 
